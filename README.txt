@@ -1,4 +1,5 @@
 Bike Index Sync Wordpress Plugin
+updated 11/14/2015
 =============
 
 The Bike Index Sync Plugin gives you, a valid organization registered at bikeindex, (bikeindex.org) the awesome ability to sync stolen bikes back to your site for easy access.
