@@ -230,9 +230,18 @@ class Bike_Index_Sync_Background {
 
 		$last_updated_timestamp = get_option('bikeindex_sync_last_updated');
 		
-		if(!isset($last_updated_timestamp) || $last_updated_timestamp == false) {
-			$last_updated_timestamp = "915148800"; //in the past... Willenium.
+		if(!isset($last_updated_timestamp) || ($last_updated_timestamp == false) || $force_past) {
+			if ($options['datefloor']) {
+				$floorparts=explode("-",$options['datefloor']);
+				$beginsync_date = mktime(0,0,1,$floorparts[0],$floorparts[1],$floorparts[2]);
+			  $last_updated_timestamp = $beginsync_date;
+			} 
+			else {
+				$last_updated_timestamp = "915148800"; //in the past... Willenium.
+			}
+			
 		}
+
 
 		$data = array(
 			"organization_slug" => $options['organization_id'],

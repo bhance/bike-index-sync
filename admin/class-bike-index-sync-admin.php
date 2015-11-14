@@ -182,7 +182,7 @@ class Bike_Index_Sync_Admin {
 
 		add_settings_field('zipcode', 'Location (Zipcode)', array( $this, 'bike_index_settings_zipcode'), 'bike-index-sync-settings', 'bike-index-sync-settings-section-one');
 		add_settings_field('radius', 'Radius (Miles)', array( $this, 'bike_index_settings_radius'), 'bike-index-sync-settings', 'bike-index-sync-settings-section-one');
-
+		add_settings_field('datefloor', 'BeginSyncDate (mm-dd-yyyy)', array( $this, 'bike_index_settings_beginsyncdate'), 'bike-index-sync-settings', 'bike-index-sync-settings-section-one');
 		add_settings_field('attribution_author', 'Bike Posts Attribution Author', array( $this, 'bike_index_settings_attribution_author'), 'bike-index-sync-settings', 'bike-index-sync-settings-section-one');
 
 		add_settings_field('sync_records', 'Sync Records Per Interval (One Hour)', array( $this, 'bike_index_settings_sync_records'), 'bike-index-sync-settings', 'bike-index-sync-settings-section-one');
@@ -240,6 +240,11 @@ class Bike_Index_Sync_Admin {
 	public function bike_index_settings_radius() {
 		$options = get_option('bike-index-sync-settings');
 		echo "<input id='radius' name='bike-index-sync-settings[radius]' size='5' type='text' value='{$options['radius']}' />";
+	}
+
+  public function bike_index_settings_beginsyncdate() {
+		$options = get_option('bike-index-sync-settings');
+		echo "<input id='datefloor' name='bike-index-sync-settings[datefloor]' size='8' type='text' value='{$options['datefloor']}' />";
 	}
 
 	public function bike_index_settings_attribution_author() {
